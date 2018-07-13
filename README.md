@@ -9,6 +9,8 @@
 composer require w3lifer/yii2-translator
 ```
 
+## Usage
+
 1. Add this to your application configuration:
 
 ``` php
