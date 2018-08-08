@@ -38,7 +38,8 @@ window.addEventListener('DOMContentLoaded', function () {
     if (destinationLanguage) {
       data += 'destinationLanguage=' + destinationLanguage + '&';
     }
-    var tables = form.querySelectorAll('.translator__form__table');
+    var tables =
+      form.querySelectorAll('.translator__form__table:not(:first-of-type)');
     tables.forEach(function (table) {
       var categoryName = table.getAttribute('data-category-name');
       table.querySelectorAll('input[type="text"]').forEach(function (input) {

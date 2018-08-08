@@ -22,18 +22,22 @@ $this->title = Yii::t('app', 'Translator');
 <div id="translator__form__wrapper">
     <div id="translator__form__box">
         <?= Html::beginForm('', 'post', ['id' => 'translator__form']) ?>
-            <hr>
-            <label id="translator__form__contact-email">
-                <span>Your email</span>: <input type="text">
-            </label>
-            <hr>
-            <label id="translator__form__destination-language">
-                <span>Destination language</span>: <input type="text">
-            </label>
+            <table class="translator__form__table">
+                <tr>
+                    <th>Your email</th>
+                    <td id="translator__form__contact-email">
+                        <input type="text">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Destination language</th>
+                    <td id="translator__form__destination-language">
+                        <input type="text">
+                    </td>
+                </tr>
+            </table>
             <?php foreach ($arrayOfPhrases as $categoryName => $phraseSet) : ?>
-                <hr>
                 <h3>Category: <?= $categoryName ?></h3>
-                <hr>
                 <table class="translator__form__table" data-category-name="<?= $categoryName ?>">
                     <?php foreach ($phraseSet as $phrase) : ?>
                         <tr>
@@ -45,7 +49,6 @@ $this->title = Yii::t('app', 'Translator');
                     <?php endforeach ?>
                 </table>
             <?php endforeach ?>
-            <hr>
             <input type="submit">
         <?php Html::endForm() ?>
     </div>
