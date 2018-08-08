@@ -5,6 +5,7 @@ namespace w3lifer\yii2\translator\logic;
 use w3lifer\phpHelper\PhpHelper;
 use w3lifer\yii2\I18nJs;
 use Yii;
+use yii\validators\EmailValidator;
 
 class Logic
 {
@@ -94,6 +95,9 @@ class Logic
             ')'
         );
         if (!empty($post['contactEmail'])) {
+            if (!(new EmailValidator())->validate($post['contactEmail'])) {
+                return false;
+            }
             $message->setFrom($post['contactEmail']);
         }
         $textBody = var_export($post['phrases'], true);
