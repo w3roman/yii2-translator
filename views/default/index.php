@@ -24,20 +24,20 @@ $this->title = Yii::t('app', 'Translator');
         <?= Html::beginForm('', 'post', ['id' => 'translator__form']) ?>
             <table class="translator__form__table">
                 <tr>
-                    <th>Your email</th>
+                    <th><?= Yii::t('app', 'Your email') ?></th>
                     <td id="translator__form__contact-email">
                         <input type="text">
                     </td>
                 </tr>
                 <tr>
-                    <th>Destination language</th>
+                    <th><?= Yii::t('app', 'Destination language') ?></th>
                     <td id="translator__form__destination-language">
                         <input type="text">
                     </td>
                 </tr>
             </table>
             <?php foreach ($arrayOfPhrases as $categoryName => $phraseSet) : ?>
-                <h3>Category: <?= $categoryName ?></h3>
+                <h3><?= Yii::t('app', 'Category') ?>: <?= $categoryName ?></h3>
                 <table class="translator__form__table" data-category-name="<?= $categoryName ?>">
                     <?php foreach ($phraseSet as $phrase) : ?>
                         <tr>
