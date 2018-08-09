@@ -50,6 +50,6 @@ $this->title = Yii::t('app', 'Translator');
                 </table>
             <?php endforeach ?>
             <input type="submit">
-        <?php Html::endForm() ?>
+        <?= Html::endForm() ?>
     </div>
 </div>
