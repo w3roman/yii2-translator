@@ -1,0 +1,38 @@
+services:
+  nginx:
+    image: nginx:1.21.6
+    ports:
+      - '804:80'
+    volumes:
+      - .docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - .:/app
+    depends_on:
+      - php-fpm
+  php-fpm:
+    build: .docker/php/fpm
+    env_file:
+      - .env
+    environment:
+      PHP_IDE_CONFIG: serverName=Docker
+    volumes:
+      - .:/app
+    depends_on:
+      mysql:
+        condition: service_healthy
+    working_dir: /app
+    command: php-fpm -R
+  mysql:
+    image: mysql:8.0.28
+    env_file:
+      - .env
+    ports:
+      - '33064:3306'
+    volumes:
+      - mysql:/var/lib/mysql
+    healthcheck:
+      test: ['CMD', 'mysqladmin' ,'ping', '-h', 'localhost']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+volumes:
+  mysql:
