@@ -10,7 +10,7 @@
     "yiisoft/yii2": "^2.0",
     "w3lifer/yii2-i18n-js": "^1.0",
     "w3lifer/php-helper": "^1.0",
-    "w3lifer/response-interface": "^1.0"
+    "w3lifer/php-response-interface": "^1.0"
   },
   "repositories": [
     {
